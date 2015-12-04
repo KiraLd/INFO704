@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>WebGL - Rainbow Quad</title>
+    <meta name="description" content="WebGL - Rainbow Quad">
+    <meta name="author" content="Aassif Benassarou">
+
+    <script src="matrix.js"></script>
+    <script src="program.js"></script>
+    <script src="vbo.js"></script>
+    <script src="quad.js"></script>
+	<script src="cube.js"></script>
+	<script src="webgl-debug.js"></script>
+
+    <style>
+      body {text-align: center;}
+      input[type=range] {width: 600px;}
+    </style>
+  </head>
+
+  <body onkeyUp="keyEvent(event)">
+    <h1><i>Rainbow Quad</i></h1>
+    <p><canvas id="canvas:rainbow-quad" width="600" height="600"></canvas></p>
+    <p><input id="input:blue" type="range" min="0" max="100" value="0" /></p>
+	<p><img id="texture" src="masque.png" style="visibility: hidden"></img></p>
+    <script src="rainbow-cube.js"></script>
+	<script src="rubiks.js"></script>
+    <script>new Rubiks ('canvas:rainbow-quad', 'input:blue', 'texture');</script>
+  </body>
+</html>

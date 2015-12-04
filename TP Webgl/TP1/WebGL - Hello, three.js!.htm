@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>WebGL - Hello, three.js!</title>
+    <meta name="description" content="WebGL - Hello, world!">
+    <meta name="author" content="Aassif Benassarou">
+    <link rel="stylesheet" href="WebGL%20-%20Hello,%20three.js%21_fichiers/style.css">
+    <script src="WebGL%20-%20Hello,%20three.js%21_fichiers/three.js"></script>
+
+    <script>
+      THREE.HelloWorld = function (canvas)
+      {
+        this.canvas = document.getElementById (canvas);
+
+        this.scene = new THREE.Scene ();
+		var W = 600;
+		var H = 600;
+		var position1 = 150/W;
+		var position2 = 450/W;
+		var angle = 3.1416*30/180;
+		
+		//carré 1, position (100,100)
+        var geometry = new THREE.PlaneGeometry (1/2, 1/2);
+        var material = new THREE.MeshBasicMaterial ({color: '#fff'});
+		var carre = new THREE.Mesh (geometry, material);
+		carre.position.set(position1,position1,0);
+		
+		//carré rouge, position(300,300)
+		var material2 = new THREE.MeshBasicMaterial({color: '#f00'});
+		var carre2 = new THREE.Mesh(geometry,material2);
+		carre2.position.set(position2,position2,0);
+		carre2.rotation.set(angle,0,angle);
+		
+        this.scene.add (carre);
+		this.scene.add(carre2);
+		
+		
+
+        this.camera = new THREE.OrthographicCamera (-1, +1, +1, -1, +1, -1);
+
+        this.renderer = new THREE.WebGLRenderer ({canvas: this.canvas, antialias: true, alpha: true});
+        this.renderer.setClearColor (0x00ff00, 1);
+
+        this.animate ();
+      }
+
+      THREE.HelloWorld.prototype =
+      {
+        constructor: THREE.HelloWorld,
+
+        animate: function ()
+        {
+          this.renderer.render (this.scene, this.camera);
+          requestAnimationFrame (this.animate.bind (this));
+        }
+      }
+    </script>
+
+    <style>
+      body {text-align: center;}
+    </style>
+  </head>
+
+  <body>
+    <h1><em>Hello, three.js!</em></h1>
+    <canvas id="canvas:hello-world" width="600" height="600"></canvas>
+    <script>new THREE.HelloWorld ('canvas:hello-world');</script>
+  
+
+</body></html>

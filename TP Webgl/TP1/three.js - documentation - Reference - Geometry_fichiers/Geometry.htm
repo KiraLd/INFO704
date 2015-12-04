@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<!-- base href="http://threejs.org/docs/" -->
+		<script src="Geometry_data/list.js"></script>
+		<script src="Geometry_data/page.js"></script>
+		<link type="text/css" rel="stylesheet" href="Geometry_data/page.css">
+	<link rel="stylesheet" href="Geometry_data/prettify.css"><link rel="stylesheet" href="Geometry_data/threejs.css"><script src="Geometry_data/prettify.js"></script></head>
+	<body>
+		<h1>Geometry</h1>
+
+		<div class="desc">
+		Base class for geometries.<br>
+		A geometry holds all data necessary to describe a 3D model.
+		</div>
+
+
+		<h2>Example</h2>
+
+		<code class=" prettyprint"><span class="kwd">var</span><span class="pln"> geometry </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> THREE</span><span class="pun">.</span><span class="typ">Geometry</span><span class="pun">();</span><span class="pln">
+
+geometry</span><span class="pun">.</span><span class="pln">vertices</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="pln">
+	</span><span class="kwd">new</span><span class="pln"> THREE</span><span class="pun">.</span><span class="typ">Vector3</span><span class="pun">(</span><span class="pln"> </span><span class="pun">-</span><span class="lit">10</span><span class="pun">,</span><span class="pln">  </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">),</span><span class="pln">
+	</span><span class="kwd">new</span><span class="pln"> THREE</span><span class="pun">.</span><span class="typ">Vector3</span><span class="pun">(</span><span class="pln"> </span><span class="pun">-</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">),</span><span class="pln">
+	</span><span class="kwd">new</span><span class="pln"> THREE</span><span class="pun">.</span><span class="typ">Vector3</span><span class="pun">(</span><span class="pln">  </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">)</span><span class="pln">
+</span><span class="pun">);</span><span class="pln">
+
+geometry</span><span class="pun">.</span><span class="pln">faces</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> THREE</span><span class="pun">.</span><span class="typ">Face3</span><span class="pun">(</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">);</span><span class="pln">
+
+geometry</span><span class="pun">.</span><span class="pln">computeBoundingSphere</span><span class="pun">();</span></code>
+
+		<h2>Constructor</h2>
+
+
+		<h3>Geometry()</h3>
+		<div>
+		The constructor takes no arguments.
+		</div>
+
+
+		<h2>Properties</h2>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.id')" target="_parent" title="Geometry.id" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Integer')" title="Integer" id="id">id</a> </h3>
+		<div>
+		Unique number for this geometry instance.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.name')" target="_parent" title="Geometry.name" class="permalink">#</a> .<a href="javascript:window.parent.goTo('String')" title="String" id="name">name</a> </h3>
+		<div>
+		Name for this geometry. Default is an empty string.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.vertices')" target="_parent" title="Geometry.vertices" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Array')" title="Array" id="vertices">vertices</a> </h3>
+		<div>
+		Array of <a href="javascript:window.parent.goTo('Vector3')" title="Vector3">vertices</a>.<br>
+		The array of vertices holds every position of points in the model.<br>
+		To signal an update in this array, <a href="javascript:window.parent.goTo('Geometry')" title="Geometry">Geometry.verticesNeedUpdate</a> needs to be set to true.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.colors')" target="_parent" title="Geometry.colors" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Array')" title="Array" id="colors">colors</a> </h3>
+		<div>
+		Array of vertex <a href="javascript:window.parent.goTo('Color')" title="Color">colors</a>, matching number and order of vertices.<br>
+		Used in <a href="javascript:window.parent.goTo('Points')" title="Points">Points</a> and <a href="javascript:window.parent.goTo('Line')" title="Line">Line</a>.<br>
+		<a href="javascript:window.parent.goTo('Mesh')" title="Mesh">Meshes</a> use per-face-use-of-vertex colors embedded directly in faces.<br>
+		To signal an update in this array, <a href="javascript:window.parent.goTo('Geometry')" title="Geometry">Geometry.colorsNeedUpdate</a> needs to be set to true.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.faces')" target="_parent" title="Geometry.faces" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Array')" title="Array" id="faces">faces</a> </h3>
+		<div>
+		Array of <a href="javascript:window.parent.goTo('Face3')" title="Face3">triangles</a>.<br>
+		The array of faces describe how each vertex in the model is connected with each other.<br>
+		To signal an update in this array, <a href="javascript:window.parent.goTo('Geometry')" title="Geometry">Geometry.elementsNeedUpdate</a> needs to be set to true.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.faceVertexUvs')" target="_parent" title="Geometry.faceVertexUvs" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Array')" title="Array" id="faceVertexUvs">faceVertexUvs</a> </h3>
+		<div>
+		Array of face <a href="javascript:window.parent.goTo('UV')" title="UV">UV</a> layers.<br>
+		Each UV layer is an array of <a href="javascript:window.parent.goTo('UV')" title="UV">UV</a>s matching the order and number of vertices in faces.<br>
+		To signal an update in this array, <a href="javascript:window.parent.goTo('Geometry')" title="Geometry">Geometry.uvsNeedUpdate</a> needs to be set to true.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.morphTargets')" target="_parent" title="Geometry.morphTargets" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Array')" title="Array" id="morphTargets">morphTargets</a> </h3>
+		<div>
+		Array of morph targets. Each morph target is a Javascript object:
+		<code class=" prettyprint"><span class="pun">{</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> </span><span class="str">"targetName"</span><span class="pun">,</span><span class="pln"> vertices</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> THREE</span><span class="pun">.</span><span class="typ">Vector3</span><span class="pun">(),</span><span class="pln"> </span><span class="pun">...</span><span class="pln"> </span><span class="pun">]</span><span class="pln"> </span><span class="pun">}</span></code>
+		Morph vertices match number and order of primary vertices.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.morphNormals')" target="_parent" title="Geometry.morphNormals" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Array')" title="Array" id="morphNormals">morphNormals</a> </h3>
+		<div>
+		Array of morph normals. Morph normals have similar structure as morph targets, each normal set is a Javascript object:
+		<code class=" prettyprint"><span class="pln">morphNormal </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> </span><span class="str">"NormalName"</span><span class="pun">,</span><span class="pln"> normals</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> THREE</span><span class="pun">.</span><span class="typ">Vector3</span><span class="pun">(),</span><span class="pln"> </span><span class="pun">...</span><span class="pln"> </span><span class="pun">]</span><span class="pln"> </span><span class="pun">}</span></code>
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.skinWeights')" target="_parent" title="Geometry.skinWeights" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Array')" title="Array" id="skinWeights">skinWeights</a> </h3>
+		<div>
+		Array of <a href="javascript:window.parent.goTo('Vector4')" title="Vector4">Vector4s</a> representing the skinning weights as used in a <a href="javascript:window.parent.goTo('SkinnedMesh')" title="SkinnedMesh">SkinnedMesh</a>,
+		The weights match the number and order of vertices in the geometry. The weighted values
+		are typically between the values of 0 and 1 and affect the amount that the individuals bones affect
+		a given vertex.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.skinIndices')" target="_parent" title="Geometry.skinIndices" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Array')" title="Array" id="skinIndices">skinIndices</a> </h3>
+		<div>
+		Array of <a href="javascript:window.parent.goTo('Vector4')" title="Vector4">Vector4s</a> representing the indices of individual bones in the <a href="javascript:window.parent.goTo('Skeleton.bones')" title="Skeleton.bones">Skeleton.bones</a> array,
+		The indices match the number and order of vertices in the geometry.
+		<code class=" prettyprint"><span class="com">// e.g.</span><span class="pln">
+geometry</span><span class="pun">.</span><span class="pln">skinIndices</span><span class="pun">[</span><span class="lit">15</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> THREE</span><span class="pun">.</span><span class="typ">Vector4</span><span class="pun">(</span><span class="pln">   </span><span class="lit">0</span><span class="pun">,</span><span class="pln">   </span><span class="lit">5</span><span class="pun">,</span><span class="pln">   </span><span class="lit">9</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">);</span><span class="pln">
+geometry</span><span class="pun">.</span><span class="pln">skinWeights</span><span class="pun">[</span><span class="lit">15</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> THREE</span><span class="pun">.</span><span class="typ">Vector4</span><span class="pun">(</span><span class="pln"> </span><span class="lit">0.2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0.5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0.3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">);</span><span class="pln">
+
+</span><span class="com">// corresponds with the following vertex</span><span class="pln">
+geometry</span><span class="pun">.</span><span class="pln">vertices</span><span class="pun">[</span><span class="lit">15</span><span class="pun">];</span><span class="pln">
+
+</span><span class="com">// these bones will be used like so:</span><span class="pln">
+skeleton</span><span class="pun">.</span><span class="pln">bones</span><span class="pun">[</span><span class="lit">0</span><span class="pun">];</span><span class="pln"> </span><span class="com">// weight of 0.2</span><span class="pln">
+skeleton</span><span class="pun">.</span><span class="pln">bones</span><span class="pun">[</span><span class="lit">5</span><span class="pun">];</span><span class="pln"> </span><span class="com">// weight of 0.5</span><span class="pln">
+skeleton</span><span class="pun">.</span><span class="pln">bones</span><span class="pun">[</span><span class="lit">9</span><span class="pun">];</span><span class="pln"> </span><span class="com">// weight of 0.3</span><span class="pln">
+skeleton</span><span class="pun">.</span><span class="pln">bones</span><span class="pun">[</span><span class="lit">0</span><span class="pun">];</span><span class="pln"> </span><span class="com">// weight of 0</span></code>
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.boundingBox')" target="_parent" title="Geometry.boundingBox" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Object')" title="Object" id="boundingBox">boundingBox</a> </h3>
+		<div>
+		Bounding box.
+		<code class=" prettyprint"><span class="pun">{</span><span class="pln"> min</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> THREE</span><span class="pun">.</span><span class="typ">Vector3</span><span class="pun">(),</span><span class="pln"> max</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> THREE</span><span class="pun">.</span><span class="typ">Vector3</span><span class="pun">()</span><span class="pln"> </span><span class="pun">}</span></code>
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.boundingSphere')" target="_parent" title="Geometry.boundingSphere" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Object')" title="Object" id="boundingSphere">boundingSphere</a> </h3>
+		<div>
+		Bounding sphere.
+		<code class=" prettyprint"><span class="pun">{</span><span class="pln"> radius</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">float</span><span class="pln"> </span><span class="pun">}</span></code>
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.dynamic')" target="_parent" title="Geometry.dynamic" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Boolean')" title="Boolean" id="dynamic">dynamic</a> </h3>
+		<div>
+		Set to <strong>true</strong> if attribute buffers will need to change in runtime (using "dirty" flags).<br>
+		Unless set to true internal typed arrays corresponding to buffers will be deleted once sent to GPU.<br>
+		Defaults to true.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.verticesNeedUpdate')" target="_parent" title="Geometry.verticesNeedUpdate" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Boolean')" title="Boolean" id="verticesNeedUpdate">verticesNeedUpdate</a> </h3>
+		<div>
+		Set to <strong>true</strong> if the vertices array has been updated.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.elementsNeedUpdate')" target="_parent" title="Geometry.elementsNeedUpdate" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Boolean')" title="Boolean" id="elementsNeedUpdate">elementsNeedUpdate</a> </h3>
+		<div>
+		Set to <strong>true</strong> if the faces array has been updated.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.uvsNeedUpdate')" target="_parent" title="Geometry.uvsNeedUpdate" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Boolean')" title="Boolean" id="uvsNeedUpdate">uvsNeedUpdate</a> </h3>
+		<div>
+		Set to <strong>true</strong> if the uvs array has been updated.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.normalsNeedUpdate')" target="_parent" title="Geometry.normalsNeedUpdate" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Boolean')" title="Boolean" id="normalsNeedUpdate">normalsNeedUpdate</a> </h3>
+		<div>
+		Set to <strong>true</strong> if the normals array has been updated.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.colorsNeedUpdate')" target="_parent" title="Geometry.colorsNeedUpdate" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Boolean')" title="Boolean" id="colorsNeedUpdate">colorsNeedUpdate</a> </h3>
+		<div>
+		Set to <strong>true</strong> if the colors array has been updated.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.lineDistancesNeedUpdate')" target="_parent" title="Geometry.lineDistancesNeedUpdate" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Boolean')" title="Boolean" id="lineDistancesNeedUpdate">lineDistancesNeedUpdate</a> </h3>
+		<div>
+		Set to <strong>true</strong> if the linedistances array has been updated.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.lineDistances')" target="_parent" title="Geometry.lineDistances" class="permalink">#</a> .<a href="javascript:window.parent.goTo('array')" title="array" id="lineDistances">lineDistances</a> </h3>
+		<div>
+		An array containing distances between vertices for Line geometries.
+		This is required for LinePieces/LineDashedMaterial to render correctly.
+		Line distances can also be generated with computeLineDistances.
+		</div>
+
+		<h2>Methods</h2>
+
+		<h3><a href="javascript:window.parent.goTo('EventDispatcher')" title="EventDispatcher">EventDispatcher</a> methods are available on this class.</h3>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.applyMatrix')" target="_parent" title="Geometry.applyMatrix" class="permalink">#</a> .<a href="javascript:window.parent.goTo('null')" title="null" id="applyMatrix">applyMatrix</a> ( <a href="javascript:window.parent.goTo('Matrix4')" title="Matrix4">matrix</a> )</h3>
+		<div>
+		Bakes matrix transform directly into vertex coordinates.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.center')" target="_parent" title="Geometry.center" class="permalink">#</a> .<a href="javascript:window.parent.goTo('null')" title="null" id="center">center</a>  ()</h3>
+		<div>
+		Center the geometry based on the bounding box.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.rotateX')" target="_parent" title="Geometry.rotateX" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Geometry')" title="Geometry" id="rotateX">rotateX</a>  ( <a href="javascript:window.parent.goTo('Float')" title="Float">radians</a> )</h3>
+		<div>
+		Rotate the geometry about the X axis. This is typically done as a one time operation, and not during a loop
+    Use <a href="javascript:window.parent.goTo('Object3D.rotation')" title="Object3D.rotation">Object3D.rotation</a> for typical real-time mesh rotation.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.rotateY')" target="_parent" title="Geometry.rotateY" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Geometry')" title="Geometry" id="rotateY">rotateY</a>  ( <a href="javascript:window.parent.goTo('Float')" title="Float">radians</a> )</h3>
+		<div>
+		Rotate the geometry about the Y axis. This is typically done as a one time operation, and not during a loop
+    Use <a href="javascript:window.parent.goTo('Object3D.rotation')" title="Object3D.rotation">Object3D.rotation</a> for typical real-time mesh rotation.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.rotateZ')" target="_parent" title="Geometry.rotateZ" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Geometry')" title="Geometry" id="rotateZ">rotateZ</a>  ( <a href="javascript:window.parent.goTo('Float')" title="Float">radians</a> )</h3>
+		<div>
+		Rotate the geometry about the Z axis. This is typically done as a one time operation, and not during a loop
+    Use <a href="javascript:window.parent.goTo('Object3D.rotation')" title="Object3D.rotation">Object3D.rotation</a> for typical real-time mesh rotation.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.translate')" target="_parent" title="Geometry.translate" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Geometry')" title="Geometry" id="translate">translate</a>  ( <a href="javascript:window.parent.goTo('Float')" title="Float">x</a>, <a href="javascript:window.parent.goTo('Float')" title="Float">y</a>, <a href="javascript:window.parent.goTo('Float')" title="Float">z</a> )</h3>
+		<div>
+		Translate the geometry. This is typically done as a one time operation, and not during a loop
+    Use <a href="javascript:window.parent.goTo('Object3D.position')" title="Object3D.position">Object3D.position</a> for typical real-time mesh translation.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.scale')" target="_parent" title="Geometry.scale" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Geometry')" title="Geometry" id="scale">scale</a>  ( <a href="javascript:window.parent.goTo('Float')" title="Float">x</a>, <a href="javascript:window.parent.goTo('Float')" title="Float">y</a>, <a href="javascript:window.parent.goTo('Float')" title="Float">z</a> )</h3>
+		<div>
+		Scale the geometry data. This is typically done as a one time operation, and not during a loop
+    Use <a href="javascript:window.parent.goTo('Object3D.scale')" title="Object3D.scale">Object3D.scale</a> for typical real-time mesh scaling.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.lookAt')" target="_parent" title="Geometry.lookAt" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Geometry')" title="Geometry" id="lookAt">lookAt</a>  ( <a href="javascript:window.parent.goTo('Vector3')" title="Vector3">vector</a> )</h3>
+		<div>
+		vector - A world vector to look at.<br>
+		</div>
+		<div>
+		Rotates the geometry to face point in space. This is typically done as a one time operation, and not during a loop
+    Use <a href="javascript:window.parent.goTo('Object3D.lookAt')" title="Object3D.lookAt">Object3D.lookAt</a> for typical real-time mesh usage.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.computeFaceNormals')" target="_parent" title="Geometry.computeFaceNormals" class="permalink">#</a> .<a href="javascript:window.parent.goTo('null')" title="null" id="computeFaceNormals">computeFaceNormals</a> ()</h3>
+		<div>
+		Computes face normals.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.computeVertexNormals')" target="_parent" title="Geometry.computeVertexNormals" class="permalink">#</a> .<a href="javascript:window.parent.goTo('null')" title="null" id="computeVertexNormals">computeVertexNormals</a> ()</h3>
+		<div>
+		Computes vertex normals by averaging face normals.<br>
+		Face normals must be existing / computed beforehand.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.computeMorphNormals')" target="_parent" title="Geometry.computeMorphNormals" class="permalink">#</a> .<a href="javascript:window.parent.goTo('null')" title="null" id="computeMorphNormals">computeMorphNormals</a> ()</h3>
+		<div>
+		Computes morph normals.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.computeBoundingBox')" target="_parent" title="Geometry.computeBoundingBox" class="permalink">#</a> .<a href="javascript:window.parent.goTo('null')" title="null" id="computeBoundingBox">computeBoundingBox</a> ()</h3>
+		<div>
+		Computes bounding box of the geometry, updating <a href="javascript:window.parent.goTo('Geometry')" title="Geometry">Geometry.boundingBox</a> attribute.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.computeBoundingSphere')" target="_parent" title="Geometry.computeBoundingSphere" class="permalink">#</a> .<a href="javascript:window.parent.goTo('null')" title="null" id="computeBoundingSphere">computeBoundingSphere</a> ()</h3>
+		<div>
+		Computes bounding sphere of the geometry, updating <a href="javascript:window.parent.goTo('Geometry')" title="Geometry">Geometry.boundingSphere</a> attribute.
+		</div>
+
+		<div>Neither bounding boxes or bounding spheres are computed by default. They need to be explicitly computed, otherwise they are <strong>null</strong>.</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.merge')" target="_parent" title="Geometry.merge" class="permalink">#</a> .<a href="javascript:window.parent.goTo('null')" title="null" id="merge">merge</a> ( <a href="javascript:window.parent.goTo('Geometry')" title="Geometry">geometry</a>, <a href="javascript:window.parent.goTo('Matrix4')" title="Matrix4">matrix</a>, <a href="javascript:window.parent.goTo('Integer')" title="Integer">materialIndexOffset</a> )</h3>
+		<div>Merge two geometries or geometry and geometry from object (using object's transform)</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.mergeVertices')" target="_parent" title="Geometry.mergeVertices" class="permalink">#</a> .<a href="javascript:window.parent.goTo('null')" title="null" id="mergeVertices">mergeVertices</a> ()</h3>
+		<div>
+		Checks for duplicate vertices using hashmap.<br>
+		Duplicated vertices are removed and faces' vertices are updated.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.normalize')" target="_parent" title="Geometry.normalize" class="permalink">#</a> .<a href="javascript:window.parent.goTo('null')" title="null" id="normalize">normalize</a> ()</h3>
+		<div>
+		Normalize the geometry. <br>
+		Make the geometry centered and has a bounding sphere whose raidus equals to 1.0.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.clone')" target="_parent" title="Geometry.clone" class="permalink">#</a> .<a href="javascript:window.parent.goTo('Geometry')" title="Geometry" id="clone">clone</a> ()</h3>
+		<div>
+		Creates a new clone of the Geometry.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.dispose')" target="_parent" title="Geometry.dispose" class="permalink">#</a> .<a href="javascript:window.parent.goTo('null')" title="null" id="dispose">dispose</a> ()</h3>
+		<div>
+		Removes The object from memory. <br>
+		Don't forget to call this method when you remove a geometry because it can cause memory leaks.
+		</div>
+
+		<h3><a href="javascript:window.parent.goTo('Geometry.computeLineDistances')" target="_parent" title="Geometry.computeLineDistances" class="permalink">#</a> .<a href="javascript:window.parent.goTo('null')" title="null" id="computeLineDistances">computeLineDistances</a> ()</h3>
+		<div>
+		Compute distances between vertices for Line geometries.
+		</div>
+
+
+		<h2>Source</h2>
+
+		<a href="https://github.com/mrdoob/three.js/blob/master/src/core/Geometry.js" target="_blank">src/core/Geometry.js</a>
+	
+
+<div id="button">Edit</div></body></html>
