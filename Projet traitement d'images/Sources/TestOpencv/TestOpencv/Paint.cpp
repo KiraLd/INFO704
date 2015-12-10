@@ -10,7 +10,7 @@ Paint::Paint()
 {
 	std::srand((unsigned int)std::time(0));
 	setStyle(IMPRESSIONISTE);
-	setErrorApproximation(200);
+	setErrorApproximation(100);
 	setCurvature(1.0);
 	setStrokeLength(4, 16);
 	S = Stroke(min, max, 0, 0, 0, 0);

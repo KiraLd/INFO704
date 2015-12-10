@@ -182,6 +182,7 @@
     <ClCompile Include="Stroke.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="getopt.h" />
     <ClInclude Include="Paint.hpp" />
     <ClInclude Include="stroke.hpp" />
   </ItemGroup>
