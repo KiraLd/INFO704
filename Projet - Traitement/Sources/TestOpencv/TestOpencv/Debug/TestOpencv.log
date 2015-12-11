@@ -1,0 +1,20 @@
+﻿La génération a démarré 11/12/2015 15:54:00.
+     1>Projet "C:\Users\Lucas\documents\visual studio 2015\Projects\TestOpencv\TestOpencv\TestOpencv.vcxproj" sur le nœud 2 (Build cible(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /MP /Od /Ob0 /Oi /Ot /Oy /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt /W4 Source.cpp
+     1>cl : Ligne de commande warning D9025: substitution de '/W3' par '/W4'
+         Source.cpp
+     1>c:\users\lucas\documents\visual studio 2015\projects\testopencv\testopencv\getopt.h(13): warning C4081: attendu 'newline' ; rencontré ';'
+     1>c:\users\lucas\documents\visual studio 2015\projects\testopencv\testopencv\source.cpp(29): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+     1>c:\users\lucas\documents\visual studio 2015\projects\testopencv\testopencv\source.cpp(35): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+     1>c:\users\lucas\documents\visual studio 2015\projects\testopencv\testopencv\source.cpp(53): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Lucas\documents\visual studio 2015\Projects\TestOpencv\Debug\TestOpencv.exe" /INCREMENTAL /NOLOGO /LIBPATH:c:\opencv\build\x86\vc12\lib opencv_calib3d2411d.lib opencv_core2411d.lib opencv_features2d2411d.lib opencv_flann2411d.lib opencv_highgui2411d.lib opencv_imgproc2411d.lib opencv_ml2411d.lib opencv_objdetect2411d.lib opencv_photo2411d.lib opencv_stitching2411d.lib opencv_superres2411d.lib opencv_ts2411d.lib opencv_video2411d.lib opencv_videostab2411d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Lucas\documents\visual studio 2015\Projects\TestOpencv\Debug\TestOpencv.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Lucas\documents\visual studio 2015\Projects\TestOpencv\Debug\TestOpencv.lib" /MACHINE:X86 Debug\Paint.obj
+         Debug\Source.obj
+         Debug\Stroke.obj
+         TestOpencv.vcxproj -> C:\Users\Lucas\documents\visual studio 2015\Projects\TestOpencv\Debug\TestOpencv.exe
+     1>Génération du projet "C:\Users\Lucas\documents\visual studio 2015\Projects\TestOpencv\TestOpencv\TestOpencv.vcxproj" terminée (Build cible(s)).
+
+La génération a réussi.
+
+Temps écoulé 00:00:01.97

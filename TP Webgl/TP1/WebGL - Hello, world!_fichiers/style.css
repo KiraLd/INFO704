@@ -1,0 +1,184 @@
+@import url(https://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,700,300italic,700italic&subset=latin,latin-ext);
+
+body
+{
+  font-size: 18px;
+  font-family: Roboto, sans-serif;
+}
+
+a
+{
+  color: black;
+}
+
+/* Titres */
+
+h1
+{
+  font-family: "Arvo", sans-serif;
+  font-size: 250%;
+  text-align: center;
+  line-height: 75%;
+}
+h1 .extra
+{
+  display: block;
+  color: #AAA;
+  font-size: 50%;
+}
+div.exercice
+{
+  max-width: 1000px;
+  margin: 0 auto;
+}
+h2
+{
+  display: list-item;
+  list-style-image: url("../puces/teapot.png");
+  list-style-position: outside;
+  margin: 40px 8px 8px 40px;
+}
+h2 code, code a, .conseil code, .danger code
+{
+  color: inherit !important;
+}
+
+/* Notes + Objectifs */
+
+.note, .objectif
+{
+  color: #884;
+  background-color: #FFC;
+  max-width: 1000px;
+  margin: 2em auto;
+  padding: 16px;
+  text-align: justify;
+}
+.objectif:before
+{
+  content: "Objectifs\xA: ";
+}
+
+/* Blocs */
+
+p
+{
+  margin:0;
+}
+div
+{
+  text-align: justify;
+}
+div.exercice
+{
+}
+table
+{
+  margin: 0;
+  border-collapse: collapse;
+}
+td
+{
+  padding: 0;
+}
+
+/* Enumérations */
+
+ul
+{
+  margin: 8px 0;
+  padding-left: 24px;
+  list-style-type: square;
+  list-style-image: none;
+  list-style-position: outside;
+}
+ul.questions
+{
+  margin: 8px 0;
+  padding-left: 40px;
+  /*list-style-image: url("../puces/phong.png");*/
+  /*list-style-position: outside;*/
+}
+
+/* Spans... */
+
+.math
+{
+  /*font-weight: bold;*/
+  /*font-family: "Courier New", Courier, mono;*/
+  font-weight: normal;
+  font-family: "Times New Roman", serif;
+  font-style: italic;
+  font-size: 115%;
+}
+code, .code
+{
+  font-weight: bold;
+  font-family: "Courier New", "DejaVu Sans Mono", "Nimbus Mono L", Courier, mono;
+  font-size: 105%;
+  color: #008;
+}
+kbd
+{
+  padding: 0 4px;
+  font-weight: bold;
+  font-family: "Courier New", Courier, mono;
+  color: black;
+  background-color: #CCC;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #EEE #AAA #AAA #EEE;
+}
+.syntaxe
+{
+  color: #E84;
+}
+
+/* Conseils */
+
+.conseil
+{
+  margin: 16px 0 16px 40px;
+  display: list-item;
+  list-style-image: url("../puces/doigt.png");
+  list-style-position: outside;
+  font-size: 20px;
+  color: #4A4 !important;
+}
+.conseil ul {margin: 0; padding: 0;}
+.conseil span {color: inherit;}
+.conseil a {color: inherit;}
+
+/* DANGER! */
+
+.danger
+{
+  margin: 16px 0 16px 40px;
+  display: list-item;
+  list-style-image: url("../puces/danger.png");
+  list-style-position: outside;
+  font-size: 20px;
+  color: #C44 !important;
+}
+.danger ul {margin: 0; padding: 0;}
+.danger span {color: inherit;}
+.danger a {color: inherit;}
+
+/* Icônes */
+
+ul.dir li, li.dir {list-style-image: url("icones/dir.png");}
+ul.ppt li, li.ppt {list-style-image: url("icones/ppt.png");}
+ul.doc li, li.doc {list-style-image: url("icones/doc.png");}
+ul.rar li, li.rar {list-style-image: url("icones/rar.png");}
+ul.tgz li, li.tgz {list-style-image: url("icones/rar.png");}
+li.bonus {list-style-image: url("icones/bonus.png");}
+
+li.bientot {color: #CCC;}
+
+ul.dir li.bientot, li.dir.bientot {list-style-image: url("icones/dir.bientot.png");}
+ul.ppt li.bientot, li.ppt.bientot {list-style-image: url("icones/ppt.bientot.png");}
+ul.doc li.bientot, li.doc.bientot {list-style-image: url("icones/doc.bientot.png");}
+
+a img {border: none}
+
